@@ -1,6 +1,7 @@
 package com.DB;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 
 public class DBConnect {
@@ -9,8 +10,8 @@ public class DBConnect {
   
   public static Connection getConn() {
 	  try {
-		  Class.forName("com.mysql.jdbc.Driver");
-		  conn=DriverManager.getConnection("jdbc:mysql://localhost:3333/ebook-app","root","admin");
+		  Class.forName("com.mysql.cj.jdbc.Driver");
+		  conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/ebook-app","root","admin");
 		  
 	  }catch(Exception e){
 		  e.printStackTrace();

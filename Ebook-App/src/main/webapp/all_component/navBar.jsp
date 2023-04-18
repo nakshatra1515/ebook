@@ -13,8 +13,8 @@
 			</form>
 		</div>
 		<div class="col-md-3">
-			<a href="login.jsp" class="btn btn-success"><i class="fa-solid fa-right-to-bracket"></i> Login</a> <a href="register.jsp"
-				class="btn btn-primary"><i class="fa-solid fa-users"></i> Register</a>
+			<a href="login.jsp" class="btn btn-success"><i class="fa-solid fa-right-to-bracket"></i> Login</a> 
+			<a href="register.jsp" class="btn btn-primary"><i class="fa-solid fa-users"></i> Register</a>
 		</div>
 	</div>
 </div>

@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.DAO.UserDAOImp;
 import com.DB.DBConnect;
@@ -35,14 +36,28 @@ public class RegisterServlet extends HttpServlet{
 			us.setPhno(phno);
 			us.setPassword(password);
 			
-			UserDAOImp dao=new UserDAOImp(DBConnect.getConn());
-			boolean f=dao.userRegister(us);
-			if(f) {
-				System.out.println("User Register Success");
-			}
 			
-			else {
-				System.out.println("Something is wrong on server");
+			HttpSession session=req.getSession();
+			if(check!=null) {
+				UserDAOImp dao=new UserDAOImp(DBConnect.getConn());
+				boolean f=dao.userRegister(us);
+				if(f) {
+					//System.out.println("User Register Success");
+					session.setAttribute("succMsg", "Registration successfullly");
+					resp.sendRedirect("register.jsp");
+				}
+				
+				else {
+					//System.out.println("Something is wrong on server");
+					session.setAttribute("failedMsg", "Something wrong on server");
+					resp.sendRedirect("register.jsp");
+				}
+			
+			}else
+			{
+				//System.out.println("Please check Terms and Condition");
+				session.setAttribute("failedMsg", "Please check Terms and Conditions");
+				resp.sendRedirect("register.jsp");
 			}
 			
 			

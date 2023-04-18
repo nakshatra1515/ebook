@@ -29,7 +29,8 @@ backgroun-color: #d1d0cd;
   <h2 class="text-center text-white"> EBook Management System</h2>
   </div> 
   
-
+<% Connection conn=DBConnect.getConn();
+out.println(conn);%>
  <!-- start recent books container -->
  
   <div class="container">
